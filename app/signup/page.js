@@ -1,6 +1,11 @@
 "use client"
+import { useRouter } from 'next/navigation';
+export default function Signup() {
+    const router = useRouter();
+    const handleCreateAccount = () => {
+        router.push('/login');
+    };
 
-export default function(){
     return (
         <div className="auth-page">
             <div className="auth-background"></div>
@@ -52,10 +57,10 @@ export default function(){
                                 I agree to the <a href="#" className="auth-link"> Terms of Service</a> and <a href="#" className="auth-link">Privacy Policy</a>
                             </label>
                         </div>
-                        <button type="button" className="auth-button">Create Account</button>
+                        <button type="button" className="auth-button" href="login">Create Account</button>
                     </form>
                     <div className="auth-footer">
-                        <p>Already have an account? <a className="auth-link" href="/login">Sign in</a></p>
+                        <p>Already have an account? <a className="auth-link" href="login">Sign in</a></p>
                     </div>
                 </div>
             </div>

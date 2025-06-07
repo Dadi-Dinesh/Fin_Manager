@@ -1,4 +1,11 @@
+'use client';
+import { useRouter } from 'next/navigation';
 export default function Login(){
+    const router = useRouter();
+
+const handleSignIn = () => {
+  router.push('/home');
+};
     return(
         <div className="auth-page">
             <div className="auth-background">
@@ -33,7 +40,7 @@ export default function Login(){
                                 Remember me
                             </label>
                         </div>
-                        <button type="button" className="auth-button">Sign In</button>
+                        <button type="button" className="auth-button" onClick={handleSignIn}>Sign In</button>
                     </form>
                     <div className="auth-footer">
                         <p>Don't have an account ?<a className="auth-link" href="signup">Create Account</a></p>
