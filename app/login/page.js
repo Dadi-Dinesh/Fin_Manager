@@ -3,16 +3,46 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
+import { auth } from '@/lib/firebase';
 
-export default function LoginPage() {
-  const router = useRouter();
+export default function SigninPage() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirm, setConfirm] = useState('');
+  const [error, setError] = useState('');
+  const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleEmailSignin = async (e) => {
     e.preventDefault();
-    if (email && password) {
+    setError('');
+
+    if (password !== confirm) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
       router.push('/explore');
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const handleGoogleSignin = async () => {
+    setError('');
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+      router.push('/explore');
+    } catch (err) {
+      setError(err.message);
     }
   };
 
@@ -21,10 +51,24 @@ export default function LoginPage() {
       <div className="auth-bg"></div>
       <div className="auth-box">
         <div className="logo">FinManager</div>
-        <div className="auth-title">Welcome back..</div>
-        <div className="auth-sub">Enter your credentials to access your account</div>
+        <div className="auth-title">Create Account</div>
+        <div className="auth-sub">Fill in the details to create your account</div>
 
-        <form className="form" onSubmit={handleSubmit}>
+        {error && <div className="error">{error}</div>}
+
+        <form className="form" onSubmit={handleEmailSignin}>
+          <div className="group">
+            <label className="label">Full Name</label>
+            <input
+              type="text"
+              className="input"
+              placeholder="Your Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+
           <div className="group">
             <label className="label">Email Address</label>
             <input
@@ -33,34 +77,44 @@ export default function LoginPage() {
               placeholder="name@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
 
           <div className="group">
-            <div className="pass-header">
-              <label className="label">Password</label>
-              <Link href="#" className="link-small">Forgot Password?</Link>
-            </div>
+            <label className="label">Password</label>
             <input
               type="password"
               className="input"
-              placeholder="Enter your password"
+              placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
 
-          <div className="remember">
-            <input type="checkbox" className="checkbox" />
-            <label>Remember me</label>
+          <div className="group">
+            <label className="label">Confirm Password</label>
+            <input
+              type="password"
+              className="input"
+              placeholder="Re-enter password"
+              value={confirm}
+              onChange={(e) => setConfirm(e.target.value)}
+              required
+            />
           </div>
 
-          <button type="submit" className="button">Sign In</button>
+          <button type="submit" className="button">Sign Up</button>
         </form>
 
+        <button onClick={handleGoogleSignin} className="button google-button">
+          Sign in with Google
+        </button>
+
         <div className="footer">
-          Don’t have an account?
-          <Link href="/signup" className="link">Create Account</Link>
+            Dont have an account
+          <Link href="/login" className="link">Sign Up</Link>
         </div>
       </div>
     </div>

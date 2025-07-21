@@ -757,7 +757,7 @@
 .reminder-list button:hover {
   background-color: #dc2626;
 }
-/* Layout Wrapper */
+/* Home Page Layout */
 .home-wrapper {
   min-height: 100vh;
   display: flex;
@@ -789,29 +789,41 @@
   text-decoration: none;
 }
 
-/* Main Content */
+/* Horizontal Card Slider */
 .main-content {
   flex: 1;
+  padding: 3rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem 1rem;
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.card-slider {
+  display: flex;
   gap: 2rem;
-  width: 100%;
-  max-width: 900px;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
+.card-slider::-webkit-scrollbar {
+  height: 8px;
+}
+.card-slider::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* Card Styles */
 .card {
+  flex: 0 0 280px;
   background: white;
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.06);
   padding: 1.5rem;
   text-align: center;
+  scroll-snap-align: start;
   transition: transform 0.2s ease;
 }
 
@@ -837,6 +849,13 @@
   border-radius: 6px;
   text-decoration: none;
   font-weight: 500;
+}
+
+/* Card Icons */
+.card-icon {
+  font-size: 2.5rem;
+  color: #1d4ed8;
+  margin-bottom: 1rem;
 }
 
 /* Footer */
@@ -868,6 +887,7 @@
   display: flex;
   gap: 1rem;
   font-size: 0.85rem;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -884,160 +904,118 @@
 .footer-icons a {
   color: white;
 }
-.finance-container {
-  background-color: #f4f8ff;
-  min-height: 100vh;
-  padding: 2rem;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.finance-wrapper {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.finance-header {
+.project-info {
+  max-width: 500px;
+  margin: 0 auto 2rem;
   text-align: center;
-  margin-bottom: 2rem;
+  padding: 1rem;
 }
 
-.finance-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #3b82f6;
-}
-
-.finance-header p {
-  font-size: 1rem;
-  color: #555;
-}
-
-.summary-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.card {
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  background-color: #fff;
-  text-align: center;
-}
-
-.card h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-
-.card.red {
-  background-color: #fee2e2;
-  color: #b91c1c;
-}
-
-.card.green {
-  background-color: #dcfce7;
-  color: #15803d;
-}
-
-.card.blue {
-  background-color: #dbeafe;
+.project-info h2 {
+  font-size: 2rem;
   color: #1d4ed8;
-}
-
-.card.purple {
-  background-color: #ede9fe;
-  color: #7c3aed;
-}
-
-.networth-box {
-  background-color: #ffffff;
-  padding: 1.5rem;
-  text-align: center;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.networth-box h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-.networth-value {
-  font-size: 2rem;
-  font-weight: bold;
+.project-info p {
+  color: #475569;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.6;
 }
 
-.networth-value.positive {
-  color: #22c55e;
+.checklist-page {
+  min-height: 100vh;
+  background-color: #f4f8ff;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.networth-value.negative {
-  color: #ef4444;
+.checklist-navbar {
+  background-color: #3b82f6;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.form-box {
+.navbar-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.home-btn {
+  background-color: white;
+  color: #3b82f6;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #e0e7ff;
+}
+
+.checklist-container {
+  max-width: 900px;
+  margin: 2rem auto;
   background-color: white;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.tabs {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
+.checklist-title {
+  font-size: 2rem;
+  color: #1d4ed8;
+  font-weight: bold;
+  text-align: center;
 }
 
-.tab-btn {
-  padding: 0.6rem 1.2rem;
-  font-weight: 500;
-  border: 1px solid #ccc;
-  background-color: #f3f4f6;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.tab-btn.active {
-  background-color: #3b82f6;
-  color: white;
-  border-color: #3b82f6;
-}
-
-.input-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.2rem;
-}
-
-.input-label {
-  display: block;
-  font-size: 0.9rem;
-  color: #374151;
-  margin-bottom: 0.3rem;
-}
-
-.input-field {
-  padding: 0.6rem 0.8rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 0.5rem;
+.checklist-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 2rem;
   font-size: 1rem;
-  width: 100%;
+}
+
+.checklist-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
   background-color: #f9fafb;
-  text-align: right;
-  transition: border-color 0.2s;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-.input-field:focus {
+.checklist-item:hover {
+  background-color: #eff6ff;
+}
+
+.checklist-item input {
+  margin-right: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  accent-color: #3b82f6;
+}
+
+.checklist-item.checked {
+  background-color: #dbeafe;
   border-color: #3b82f6;
-  outline: none;
-  box-shadow: 0 0 0 1px #3b82f6;
+  text-decoration: line-through;
+  color: #1e40af;
 }
-
