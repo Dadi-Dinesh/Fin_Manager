@@ -1,52 +1,70 @@
 'use client';
-import { useRouter } from 'next/navigation';
-export default function Login(){
-    const router = useRouter();
 
-const handleSignIn = () => {
-  router.push('/home');
-};
-    return(
-        <div className="auth-page">
-            <div className="auth-background">
+import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation'; // ✅ Import router
+
+export default function LoginPage() {
+  const router = useRouter(); // ✅ Initialize router
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // You can add authentication logic here
+    if (email && password) {
+      router.push('/'); // ✅ Redirect to Home page
+    }
+  };
+
+  return (
+    <div className="auth">
+      <div className="auth-bg"></div>
+      <div className="auth-box">
+        <div className="logo">FinManager</div>
+        <div className="auth-title">Welcome back..</div>
+        <div className="auth-sub">Enter your credentials to access your account</div>
+
+        <form className="form" onSubmit={handleSubmit}> {/* ✅ Added onSubmit */}
+          <div className="group">
+            <label className="label">Email Address</label>
+            <input
+              type="email"
+              className="input"
+              placeholder="name@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="group">
+            <div className="pass-header">
+              <label className="label">Password</label>
+              <Link href="#" className="link-small">Forgot Password?</Link>
             </div>
-            <div className="auth-container">
-                <div className="auth-card">
-                    <div className="auth-header">
-                        <a href="#"><span className="logo">FinManager</span></a>
-                        <h1 className="auth-title">Welcome back..</h1>
-                        <p className="auth-subtitle">Enter your credentials to access your account</p>
-                    </div>
-                    <form className="auth-form">
-                        <div className="form-group">
-                            <label htmlFor="email" className="form-label">Email Address</label>
-                            <div className="input-wrapper">
-                                <input id="email" type="email" placeholder="name@example.com" className="form-input"/>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <div className="password-header">
-                                <label htmlFor="password" className="form-label">Password</label>
-                                <a href="#" className="forgot-password">Forgot Password?</a>
-                            </div>
-                            <div className="input-wrapper">
-                                <input id="password" type="password" placeholder="Enter your password" className="form-input"/>
-                            </div>
-                        </div>
-                        <div className="remember-me">
-                            <label className="checkbox-container">
-                                <input type="checkbox"/>
-                                <span className="checkmark"></span>
-                                Remember me
-                            </label>
-                        </div>
-                        <button type="button" className="auth-button" onClick={handleSignIn}>Sign In</button>
-                    </form>
-                    <div className="auth-footer">
-                        <p>Don't have an account ?<a className="auth-link" href="signup">Create Account</a></p>
-                    </div>
-                </div>
-            </div>
+            <input
+              type="password"
+              className="input"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <div className="remember">
+            <input type="checkbox" className="checkbox" />
+            <label>Remember me</label>
+          </div>
+
+          <button type="submit" className="button">Sign In</button>
+        </form>
+
+        <div className="footer">
+          Don’t have an account?
+          <Link href="/signup" className="link">Create Account</Link>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
