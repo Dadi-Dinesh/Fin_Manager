@@ -1,4 +1,4 @@
-/* === BASE RESET === */
+
 * {
   margin: 0;
   padding: 0;
@@ -68,7 +68,6 @@
 .button:hover {
   background-color: #2563eb;}
 
-/* === AUTH PAGE === */
 .auth {
   display: flex;
   min-height: 100vh;
@@ -99,7 +98,6 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
 }
 
-/* === HEADER === */
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
@@ -123,7 +121,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* === FORM === */
 .form {
   display: flex;
   flex-direction: column;
@@ -154,8 +151,6 @@
   border-color: #2563eb;
   box-shadow: 0 0 0 1px #2563eb;
 }
-
-/* === PASSWORD OPTIONS === */
 .pass-header {
   display: flex;
   justify-content: space-between;
@@ -171,8 +166,6 @@
 .link-small:hover {
   color: #1e40af;
 }
-
-/* === REMEMBER CHECKBOX === */
 .remember {
   display: flex;
   align-items: center;
@@ -206,8 +199,6 @@
   border-width: 0 0.15rem 0.15rem 0;
   transform: rotate(45deg);
 }
-
-/* === BUTTON === */
 .button {
   padding: 0.75rem;
   width: 100%;
@@ -224,8 +215,6 @@
 .button:hover {
   background: linear-gradient(to right, #1e40af, #1d4ed8);
 }
-
-/* === FOOTER === */
 .footer {
   margin-top: 1.5rem;
   text-align: center;
@@ -242,4 +231,105 @@
 
 .link:hover {
   color: #1e40af;
+}
+.goals-page {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #2d2d2d;
+  background-color: #fdfdfd;
+}
+
+.goals-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1c3faa;
+}
+
+.home-link {
+  font-size: 16px;
+  text-decoration: none;
+  color: #1c3faa;
+  font-weight: 500;
+}
+
+.home-link:hover {
+  text-decoration: underline;
+}
+
+.goal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.goal-input {
+  padding: 12px 15px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.goal-button {
+  padding: 12px;
+  background-color: #1c3faa;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.goal-button:hover {
+  background-color: #15309c;
+}
+
+.goals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.goal-item {
+  background-color: #f1f5ff;
+  padding: 16px 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.goal-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.goal-amount {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1c3faa;
+}
+
+.empty-message {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
 }

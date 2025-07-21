@@ -2,19 +2,17 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation'; // ✅ Import router
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
-  const router = useRouter(); // ✅ Initialize router
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // You can add authentication logic here
     if (email && password) {
-      router.push('/'); // ✅ Redirect to Home page
+      router.push('/');
     }
   };
 
@@ -26,7 +24,7 @@ export default function LoginPage() {
         <div className="auth-title">Welcome back..</div>
         <div className="auth-sub">Enter your credentials to access your account</div>
 
-        <form className="form" onSubmit={handleSubmit}> {/* ✅ Added onSubmit */}
+        <form className="form" onSubmit={handleSubmit}>
           <div className="group">
             <label className="label">Email Address</label>
             <input
