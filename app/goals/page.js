@@ -25,7 +25,7 @@ export default function GoalsPage() {
     <div className="goals-container">
       <header className="navbar">
         <div className="nav-left">FinManager</div>
-        <Link href="/" className="nav-right">Home</Link>
+        <Link href="explore" className="nav-right">Home</Link>
       </header>
 
       <main className="goals-main">

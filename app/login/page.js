@@ -12,7 +12,7 @@ export default function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email && password) {
-      router.push('/');
+      router.push('/explore');
     }
   };
 

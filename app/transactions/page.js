@@ -46,7 +46,7 @@ const Transactions = () => {
     <div className="transactions-page">
       <nav className="transactions-navbar">
         <h1 className="navbar-title">Finance Manager</h1>
-        <button className="home-btn" onClick={() => router.push('/')}>
+        <button className="home-btn" onClick={() => router.push('/explore')}>
           Home
         </button>
       </nav>

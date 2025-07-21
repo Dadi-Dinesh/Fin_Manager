@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .explore {
   display: flex;
   height: 100vh;
@@ -579,5 +580,464 @@
 
 .home-btn:hover {
   background-color: #e0e7ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.navbar, .transactions-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1d4ed8;
+  padding: 1rem 2rem;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-title, .nav-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.nav-home, .home-btn, .nav-right {
+  font-size: 1rem;
+  color: #1d4ed8;
+  background-color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.nav-home:hover, .home-btn:hover, .nav-right:hover {
+  background-color: #e0e7ff;
+}
+
+.explore {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.left {
+  flex: 1;
+  background-color: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #1d4ed8;
+  margin-bottom: 1rem;
+}
+
+.desc {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+.right {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.button {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1d4ed8;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background-color: #2563eb;
+}
+/* Reminder Page Styles */
+.reminder-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 1rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.reminder-form h2,
+.reminder-list h2 {
+  color: #1d4ed8;
+  margin-bottom: 1rem;
+}
+
+.reminder-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.reminder-form button {
+  background-color: #1d4ed8;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reminder-form button:hover {
+  background-color: #2563eb;
+}
+
+.reminder-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.reminder-list li {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.reminder-list button{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reminder-list button:hover {
+  background-color: #dc2626;
+}
+/* Layout Wrapper */
+.home-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #1d4ed8;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.home-btn {
+  color: #1d4ed8;
+  background: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: #1d4ed8;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #334155;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.card-btn {
+  background-color: #1d4ed8;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Footer */
+.footer {
+  background-color: #1d4ed8;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 0.7rem;
+  font-size: 1.2rem;
+}
+
+.footer-icons a {
+  color: white;
+}
+.finance-container {
+  background-color: #f4f8ff;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.finance-wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.finance-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.finance-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.finance-header p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background-color: #fff;
+  text-align: center;
+}
+
+.card h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.card.red {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.card.green {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.card.blue {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.card.purple {
+  background-color: #ede9fe;
+  color: #7c3aed;
+}
+
+.networth-box {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.networth-box h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.networth-value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.networth-value.positive {
+  color: #22c55e;
+}
+
+.networth-value.negative {
+  color: #ef4444;
+}
+
+.form-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tab-btn {
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  background-color: #f3f4f6;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.tab-btn.active {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #374151;
+  margin-bottom: 0.3rem;
+}
+
+.input-field {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #f9fafb;
+  text-align: right;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 1px #3b82f6;
 }
 

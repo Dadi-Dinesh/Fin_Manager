@@ -35,7 +35,7 @@ export default function CalculationPage() {
     <div className="calc-container">
       <div className="navbar">
         <div className="nav-title">FinManager</div>
-        <Link href="/" className="nav-home">Home</Link>
+        <Link href="/explore" className="nav-home">Home</Link>
       </div>
 
       <div className="tabs">
