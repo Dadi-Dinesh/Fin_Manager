@@ -1,62 +1,69 @@
 'use client';
+
 import Link from 'next/link';
 import { useState } from 'react';
 
 export default function GoalsPage() {
+  const [goals, setGoals] = useState([]);
   const [goalName, setGoalName] = useState('');
   const [goalAmount, setGoalAmount] = useState('');
-  const [goals, setGoals] = useState([]);
 
-  const handleAddGoal = (e) => {
-    e.preventDefault();
+  const addGoal = () => {
     if (!goalName || !goalAmount) return;
-
     const newGoal = {
-      id: Date.now(),
       name: goalName,
       amount: parseFloat(goalAmount),
     };
-
-    setGoals([newGoal, ...goals]);
+    setGoals([...goals, newGoal]);
     setGoalName('');
     setGoalAmount('');
   };
 
+  const totalAmount = goals.reduce((acc, goal) => acc + goal.amount, 0);
+
   return (
-    <div className="goals-page">
-      <header className="goals-header">
-        <h1 className="logo">FinManager</h1>
-        <Link href="/home" className="home-link">Home</Link>
+    <div className="goals-container">
+      <header className="navbar">
+        <div className="nav-left">FinManager</div>
+        <Link href="/" className="nav-right">Home</Link>
       </header>
-      <form onSubmit={handleAddGoal} className="goal-form">
-        <input
-          type="text"
-          placeholder="Goal name"
-          value={goalName}
-          onChange={(e) => setGoalName(e.target.value)}
-          className="goal-input"
-        />
-        <input
-          type="number"
-          placeholder="Amount needed"
-          value={goalAmount}
-          onChange={(e) => setGoalAmount(e.target.value)}
-          className="goal-input"
-        />
-        <button type="submit" className="goal-button">Add Goal</button>
-      </form>
-      <div className="goals-list">
-        {goals.length === 0 ? (
-          <p className="empty-message">No goals added yet.</p>
-        ) : (
-          goals.map(goal => (
-            <div key={goal.id} className="goal-item">
-              <div className="goal-name">{goal.name}</div>
-              <div className="goal-amount">₹{goal.amount}</div>
-            </div>
-          ))
-        )}
-      </div>
+
+      <main className="goals-main">
+        <div className="goals-form">
+          <input
+            type="text"
+            placeholder="Goal Name"
+            value={goalName}
+            onChange={(e) => setGoalName(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Amount (₹)"
+            value={goalAmount}
+            onChange={(e) => setGoalAmount(e.target.value)}
+          />
+          <button onClick={addGoal}>Add Goal</button>
+        </div>
+
+        <div className="goals-list">
+          {goals.length === 0 ? (
+            <p className="empty">No goals added yet.</p>
+          ) : (
+            goals.map((goal, index) => (
+              <div key={index} className="goal-item">
+                <span>{goal.name}</span>
+                <span>₹{goal.amount}</span>
+              </div>
+            ))
+          )}
+        </div>
+
+        <footer className="goals-summary">
+          <p>Total Goals: {goals.length}</p>
+          <p>Total Amount: ₹{totalAmount}</p>
+        </footer>
+      </main>
     </div>
   );
 }
+
